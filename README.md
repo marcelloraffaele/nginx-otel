@@ -7,7 +7,8 @@ OpenTelemetry is a collection of tools, APIs, and SDKs that can be used to instr
 [nginx-plus Native_OpenTelemetry](https://www.nginx.com/blog/nginx-plus-r29-released/#_Native_OpenTelemetry)
 [Docs otel module](https://nginx.org/en/docs/ngx_otel_module.html)
 
-
+## Architecture
+![zipkin-traces](/images/demo-architecture.png)
 
 ## How to build
 First of all we need to build and Nginx Plus image and install on it the ngx_otel_module. To this this is needed a NGINX Plus subscription (purchased or trial). You can ask a [trial from here](https://www.nginx.com/free-trial-request/).
@@ -20,6 +21,10 @@ docker build --no-cache -t nginxplus --secret id=nginx-crt,src=your_cert_file --
 
 ## how to test
 the project is configured with docker compose.
+You can clone locally this project:
+```bash
+git clone https://github.com/marcelloraffaele/nginx-otel.git
+```
 
 To run the project, run the following command:
 
@@ -34,15 +39,11 @@ Creating network "nginx-otel_default" with the default driver
 Creating zipkin ... done
 Creating nginx-otel_collector_1 ... done
 Creating nginx-otel_backend_1   ... done
-Creating nginx-otel_api-gateway_1 ... don
+Creating nginx-otel_api-gateway_1 ... done
 ```
 
 
 ## TEST:
-You can clone locally this project:
-```bash
-git clone https://github.com/marcelloraffaele/nginx-otel.git
-```
 
 First of all we open a browser at the zipkin page: [http://localhost:9411/](http://localhost:9411/)
 
