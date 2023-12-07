@@ -1,0 +1,21 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+  otlp/2:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:55690
+exporters:
+  zipkin/nontls:
+    endpoint: "http://zipkin:9411/api/v2/spans"
+    format: proto
+    default_service_name: default-service
+  azuremonitor:
+    connection_string: "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://ingestion.azuremonitor.com/"
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [zipkin/nontls, azuremonitor]
