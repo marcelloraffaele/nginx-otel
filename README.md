@@ -74,7 +74,7 @@ To destroy all the resources:
 docker-compose down
 ```
 
-# Forward the Metrics to Azure App Insights
+# Forward the Traces to Azure App Insights
 As mentioned in the previous article [Nginx Plus Monitoring and Tracing: Harnessing the Power of OpenTelemetry](https://medium.com/p/65477020d864), using OpenTelemetry provides an opportunity to extend and enhance our architecture to integrate with Cloud Services. In this post, we will explore how it is possible to forward the traces that our application creates to Azure Application Insights. The updated architecture will look like this:
 ![forward-app-insights-architecture](/images/forward-app-insights/architecture.png)
 
@@ -187,3 +187,4 @@ Finally, delete the Resource group to free up resources.
 
 ## Conclusion
 This post illustrates how to configure the OpenTelemetry Collector to forward traces to Azure Application Insights. OpenTelemetry is highly flexible and can be employed to send traces to various Cloud Services. As an open-source project, it allows the creation of ad-hoc exporters to expand the catalog of components for different technologies. While this version of the collector is open source and not directly supported by the provider, it remains valuable for many use cases.
+Forwarding traces to a cloud service like Azure Application Insights can be incredibly useful for consolidating traces from various locations within our architecture. From Application Insights, these traces can be analyzed, providing the opportunity for end-to-end analysis. This allows for measuring performance and identifying bottlenecks.
